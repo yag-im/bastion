@@ -1,9 +1,6 @@
 ROOT_DIR := $(dir $(realpath $(lastword $(MAKEFILE_LIST))))
 SHELL := /bin/bash
 
-include .env
-export
-
 APP_NAME := infra.bastion
 DOCKER_IMAGE_TAG := $(APP_NAME):dev
 LISTEN_PORT := 2207
@@ -17,7 +14,6 @@ docker-run: ## Run dev docker image
 	docker run --rm -it \
 		--name yag-$(APP_NAME) \
 		-p $(LISTEN_PORT):22/tcp \
-		--env-file $(ROOT_DIR).env \
 		$(DOCKER_IMAGE_TAG)
 
 .PHONY: docker-build
