@@ -1,0 +1,4 @@
+_extends: .github:settings.yml
+repository:
+  name: bastion
+  description: gate service providing access to the production environment
